@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduGenie: Google Gemini Powered Learning Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="badge">Google Gemini Powered</div>
+            <h1 class="title">Welcome to EduGenie 🎓✨</h1>
+            <p class="subtitle">Your personal AI tutor for learning support!</p>
+        </header>
+
+        <!-- Quick Task Switcher / Filter Pills -->
+        <nav class="task-nav" aria-label="Task Navigation">
+            <button class="nav-pill active" onclick="scrollToSection('qaSection')">Ask Question</button>
+            <button class="nav-pill" onclick="scrollToSection('explainSection')">Concept Explanation</button>
+            <button class="nav-pill" onclick="scrollToSection('summarySection')">Summarizer</button>
+            <button class="nav-pill" onclick="scrollToSection('quizSection')">Quiz Generator</button>
+            <button class="nav-pill" onclick="scrollToSection('recommendSection')">Learning Path</button>
+        </nav>
+
+        <main class="main-content">
+            <!-- 1. Q&A Module -->
+            <section id="qaSection" class="card">
+                <form id="qaForm" onsubmit="handleQA(event)">
+                    <label for="question"><strong>Ask EduGenie a Question:</strong></label>
+                    <div class="input-row">
+                        <input type="text" id="question" placeholder="Why is the sky blue?" required autocomplete="off">
+                        <button type="submit" id="qaBtn" class="btn btn-primary">Get Answer</button>
+                    </div>
+                </form>
+                <div id="qaResult" class="output"></div>
+            </section>
+
+            <!-- 2. Explanation Module -->
+            <section id="explainSection" class="card">
+                <form id="explainForm" onsubmit="handleExplain(event)">
+                    <label for="topic"><strong>Need an Explanation?</strong></label>
+                    <div class="input-row">
+                        <input type="text" id="topic" placeholder="Photosynthesis" required autocomplete="off">
+                        <button type="submit" id="explainBtn" class="btn btn-primary">Explain</button>
+                    </div>
+                </form>
+                <div id="explanationResult" class="output"></div>
+            </section>
+
+            <!-- 3. Summary Module -->
+            <section id="summarySection" class="card">
+                <form id="summaryForm" onsubmit="handleSummary(event)">
+                    <label for="summaryText"><strong>Summarize a Paragraph:</strong></label>
+                    <div class="input-col">
+                        <textarea id="summaryText" placeholder="Paste long content to summarize" rows="3" required></textarea>
+                        <div class="btn-align-right">
+                            <button type="submit" id="summaryBtn" class="btn btn-primary">Summarize</button>
+                        </div>
+                    </div>
+                </form>
+                <div id="summaryResult" class="output"></div>
+            </section>
+
+            <!-- 4. Quiz Module -->
+            <section id="quizSection" class="card">
+                <form id="quizForm" onsubmit="handleQuiz(event)">
+                    <label for="quizText"><strong>Generate a Quiz:</strong></label>
+                    <div class="input-row">
+                        <input type="text" id="quizText" placeholder="Solar System" required autocomplete="off">
+                        <button type="submit" id="quizBtn" class="btn btn-primary">Generate Quiz</button>
+                    </div>
+                </form>
+                <div id="quizResult" class="output"></div>
+            </section>
+
+            <!-- 5. Learning Recommendations Module -->
+            <section id="recommendSection" class="card">
+                <form id="recommendForm" onsubmit="handleRecommendations(event)">
+                    <label for="recommendTopic"><strong>Get Learning Recommendations:</strong></label>
+                    <div class="input-row">
+                        <input type="text" id="recommendTopic" placeholder="e.g. Linear Regression" required autocomplete="off">
+                        <button type="submit" id="recommendBtn" class="btn btn-primary">Get Recommendations</button>
+                    </div>
+                </form>
+                <div id="recommendResult" class="output"></div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>EduGenie &bull; AI Powered Educational Assistant &bull; SmartBridge & SmartInternz</p>
+        </footer>
+    </div>
+
+    <script src="/static/app.js"></script>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
